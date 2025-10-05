@@ -5,6 +5,7 @@ import Counter from "@/components/modules/Home/Counter";
 import { FAQSection } from "@/components/modules/Home/Faq";
 import Gallery from "@/components/modules/Home/Gallery";
 import HeroSection from "@/components/modules/Home/Hero";
+import HowToWork from "@/components/modules/Home/HowToWork";
 import Newsletter from "@/components/modules/Home/Newsletter";
 import PodcastPage from "@/components/modules/Home/OurProducts";
 import TestimonialsPage from "@/components/modules/Home/Review";
@@ -19,13 +20,14 @@ export default function Home() {
       <ServicesSection />
       <Gallery />
       <Choose />
-      <Counter/>
-      <TestimonialsPage/>
-      <SuccessStoriesSection/>
-      <PodcastPage/>
-      <ContactSection/>
-      <FAQSection/>
-      <Newsletter/>
+      <HowToWork />
+      <Counter />
+      <TestimonialsPage />
+      <SuccessStoriesSection />
+      <PodcastPage />
+      <ContactSection />
+      <FAQSection />
+      <Newsletter />
     </div>
   );
 }
