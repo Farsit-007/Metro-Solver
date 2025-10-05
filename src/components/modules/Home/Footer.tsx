@@ -17,11 +17,11 @@ export function Footer() {
   const selectedCurrency = currencies.find((c) => c.value === currency)
 
   return (
-    <footer className="bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950 text-white">
+    <footer className=" mt-10 bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950 text-white">
      
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Contact Section */}
           <div className="lg:col-span-1">
