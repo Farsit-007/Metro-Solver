@@ -69,7 +69,7 @@ interface StoryCardProps {
 function StoryCard({ story }: StoryCardProps) {
   return (
     <div
-      className={`group relative overflow-hidden relative rounded-3xl bg-card transition-all duration-300 hover:scale-[1.02] hover:ring-2 ring-primary/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]`}
+      className={`group relative overflow-hidden  rounded-3xl bg-card transition-all duration-300 hover:scale-[1.02] hover:ring-2 ring-primary/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]`}
     >
       <div className="absolute z-50 bottom-20 left-80 w-[850px] h-[850px] bg-purple-400/10 rounded-full blur-3xl "></div>
       {/* Image */}
