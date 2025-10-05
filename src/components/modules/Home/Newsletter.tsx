@@ -7,9 +7,9 @@ const Newsletter = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <div className="max-w-7xl mx-auto bg-[#13081D] rounded-4xl px-10">
+    <div className="max-w-7xl border-b border-white/10 mx-auto mb-20 bg-[#13081D] rounded-4xl px-10">
       {/* Newsletter Section */}
-      <div className="border-b border-white/10">
+      <div className="">
         <div className="container mx-auto px-4 py-16">
           <div className="">
             {/* Logo */}

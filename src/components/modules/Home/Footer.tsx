@@ -17,8 +17,8 @@ export function Footer() {
   const selectedCurrency = currencies.find((c) => c.value === currency)
 
   return (
-    <footer className=" mt-10 bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950 text-white">
-     
+    <footer className=" pt-24 relative text-white">
+       <div className="absolute -z-10 bottom-10 right-[25%] w-[850px] h-[850px] bg-purple-400/10 rounded-full blur-3xl "></div>
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">

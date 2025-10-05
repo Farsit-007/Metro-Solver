@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About us", href: "/about" },
+    { name: "About us", href: "/about-us" },
     {
       name: "Services",
       dropdown: [
