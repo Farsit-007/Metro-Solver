@@ -9,6 +9,7 @@ import {
   LogOut,
   Users,
 } from "lucide-react";
+import p1 from "@/assets/p1.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import Lottie from "lottie-react";
@@ -132,14 +133,14 @@ export default function Navbar() {
           {/* User Menu */}
           <div className="relative group">
             <button className="w-10 h-10 rounded-full overflow-hidden border border-[#7b3fe4] bg-[#251536de]">
-              <Image src="/user.jpg" alt="User" width={40} height={40} />
+              <Image src={p1} alt="User" width={40} height={40} />
             </button>
 
             <div className="absolute right-0 mt-3 w-64 bg-[#251536cc] rounded-2xl shadow-xl p-4 z-50 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
               {/* User Info */}
               <div className="flex flex-col items-center text-center mb-3">
                 <Image
-                  src="/user.jpg"
+                  src={p1}
                   alt="User"
                   width={60}
                   height={60}
