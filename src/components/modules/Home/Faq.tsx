@@ -71,7 +71,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="max-w-7xl mx-auto relative px-4 py-16 lg:py-24">
+    <section className="max-w-7xl mx-auto relative  py-16 lg:py-24">
         <div className="absolute z-10 -bottom-20 right-10 w-[850px] h-[850px] bg-purple-400/10 rounded-full blur-3xl "></div>
       <div className="mb-12">
         <h2 className="text-4xl font-bold tracking-tight text-foreground lg:text-5xl">

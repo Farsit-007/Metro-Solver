@@ -36,7 +36,7 @@ const Choose = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 relative">
+    <section className="max-w-7xl mx-auto py-16 relative">
       <div className="absolute  bottom-30 right-10 w-[750px] h-[750px] bg-purple-500/10 rounded-full blur-3xl "></div>
       <div className="absolute  bottom-10 right-20 w-[750px] h-[750px] bg-purple-500/10 rounded-full blur-3xl "></div>
       <div className="flex flex-col lg:flex-row gap-12 items-center justify-between w-full">

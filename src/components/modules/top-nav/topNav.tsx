@@ -14,8 +14,8 @@ const TopNav = () => {
   return (
     <section>
       <div className="bg-[#11111db4]">
-        <div className="max-w-7xl mx-auto px-10 py-3">
-          <div className="hidden md:flex items-center justify-center flex-wrap gap-3 text-xs text-gray-400">
+        <div className="max-w-7xl mx-auto  py-3">
+          <div className="hidden md:flex items-center justify-between flex-wrap gap-3 text-xs text-gray-400">
             {topBarItems.map((item, idx) =>
               item === "30% OFF" ? (
                 <span

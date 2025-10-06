@@ -5,8 +5,10 @@ import logoAnimation from "../../../assets/bot.gif";
 import hero from "../../../assets/hero.gif";
 import Image from "next/image";
 import ChatWidget from "./Bot";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className="relative overflow-hidden">
       {/* <div className="absolute  z-50  inset-0">
@@ -18,7 +20,7 @@ export default function HeroSection() {
       </div> */}
 
       {/* Content Container */}
-      <div className="relative max-w-7xl mx-auto px-6 flex items-center ">
+      <div className="relative max-w-7xl mx-auto  flex items-center ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left Content */}
           <div className="space-y-6 z-10">
@@ -61,7 +63,9 @@ export default function HeroSection() {
 
             {/* Bottom Icon */}
 
-            <ChatWidget />
+            <div className="md:flex hidden">
+              <ChatWidget />
+            </div>
 
             {/* Glowing Center Element */}
           </div>

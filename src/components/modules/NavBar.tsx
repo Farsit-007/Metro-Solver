@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
@@ -8,15 +9,20 @@ import {
   Gift,
   LogOut,
   Users,
+  Menu,
+  MessageCircle,
 } from "lucide-react";
 import p1 from "@/assets/p1.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import Lottie from "lottie-react";
 import logoAnimation from "../../assets/Logo.json";
+import ChatWidget from "./Home/Bot";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -34,43 +40,51 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full text-white py-3   px-6 shadow-lg">
+    <nav className="w-full text-white py-3 px-6 shadow-lg relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center space-x-2 relative">
-          <div className="relative w-20 h-16">
-            {/* Blurred corner shapes */}
-            <div className="absolute -top-40 -left-52 w-76 h-76 bg-purple-600/20 rounded-full blur-3xl z-0"></div>
-          
-
-            {/* Lottie Logo */}
-            <Lottie
-              animationData={logoAnimation}
-              loop
-              autoplay
-              style={{
-                filter:
-                  "invert(33%) sepia(98%) saturate(2637%) hue-rotate(188deg) brightness(95%) contrast(92%)",
-                position: "relative",
-                zIndex: 10, // ensure logo is above shapes
-              }}
-            />
+        {/* Mobile Menu Button */}
+        <div className="w-full md:w-0  flex items-center justify-between gap-3">
+          <button
+            className="p-3 bg-[#25153694] relative z-50 block md:hidden  cursor-pointer rounded-full"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Menu />
+          </button>
+          <div className="flex items-center relative">
+            <div className="relative w-20 h-12">
+              <div className="absolute -top-40 -left-52 w-76 h-76 bg-purple-600/20 rounded-full blur-3xl z-0"></div>
+              <Lottie
+                animationData={logoAnimation}
+                loop
+                autoplay
+                style={{
+                  filter:
+                    "invert(33%) sepia(98%) saturate(2637%) hue-rotate(188deg) brightness(95%) contrast(92%)",
+                  position: "relative",
+                  zIndex: 10,
+                }}
+              />
+            </div>
           </div>
+          
+           <div className="flex md:hidden">
+            <ChatWidget/>
+           </div>
+         
         </div>
 
+        {/* Logo */}
+
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6 bg-[#25153694] rounded-full px-5 py-2">
-          {navItems.map((item, idx) =>
+        <div className="hidden md:flex items-center space-x-6 bg-[#25153694] rounded-full px-5 lg:ml-16 py-2">
+          {navItems.map((item) =>
             item.dropdown ? (
               <div key={item.name} className="relative group">
-                {/* Button */}
                 <button className="flex items-center space-x-1 text-gray-300 hover:text-white text-sm font-medium">
                   <span>{item.name}</span>
                   <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
                 </button>
-
-                {/* Dropdown */}
-                <div className="absolute left-0 mt-5 w-40 bg-[#1b0038]  rounded-lg shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
+                <div className="absolute left-0 mt-5 w-40 bg-[#1b0038] -z-10 rounded-lg shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
                   {item.dropdown.map((d) => (
                     <Link
                       key={d.name}
@@ -122,7 +136,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           {/* Cart */}
           <Link href="/cart">
             <div className="p-3 bg-[#25153694] rounded-full transition hover:bg-[#2b0060]">
@@ -132,11 +146,11 @@ export default function Navbar() {
 
           {/* User Menu */}
           <div className="relative group">
-            <button className="w-10 h-10 rounded-full overflow-hidden border border-[#7b3fe4] bg-[#251536de]">
+            <button className="w-10 h-10 rounded-full overflow-hidden border border-[#7b3fe4] cursor-pointer bg-[#251536de]">
               <Image src={p1} alt="User" width={40} height={40} />
             </button>
 
-            <div className="absolute right-0 mt-3 w-64 bg-[#251536cc] rounded-2xl shadow-xl p-4 z-50 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
+            <div className="absolute right-0 mt-3 w-64 bg-[#251536cc] rounded-2xl z-50 shadow-xl p-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
               {/* User Info */}
               <div className="flex flex-col items-center text-center mb-3">
                 <Image
@@ -213,6 +227,85 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Sliding Menu */}
+      <div
+        className={`fixed top-10 left-0 h-full w-64 bg-[#251536ee] shadow-lg rounded-r-4xl transform transition-transform z-50 ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center px-4 pt-3 border-b border-[#2b0060]">
+          <h2 className="text-white font-bold"></h2>
+          <button onClick={() => setMobileMenuOpen(false)}>✕</button>
+        </div>
+        <div className="p-4">
+          <div className="flex items-center  text-center gap-3 py-3 border-b border-gray-600/50 ">
+            <Image
+              src={p1}
+              alt="User"
+              width={60}
+              height={60}
+              className="rounded-full border border-[#7b3fe4]"
+            />
+            <div>
+              <h3 className="text-white mt-2 font-semibold text-sm">
+                Albert Flores
+              </h3>
+              <p className="text-xs text-gray-400 py-2">baker@example.com</p>
+            </div>
+          </div>
+          <ul className="space-y-4 text-gray-300 font-medium pt-3 ">
+            <li className="flex items-center gap-2 text-gray-300 hover:text-white cursor-pointer">
+              <User size={16} /> User Profile
+            </li>
+            <li className="flex items-center gap-2 text-gray-300 hover:text-white cursor-pointer">
+              <Users size={16} /> Referrals
+            </li>
+            <li className="flex items-center justify-between text-gray-300 hover:text-white cursor-pointer">
+              <div className="flex items-center gap-2">
+                <Gift size={16} /> Rewards
+              </div>
+              <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">
+                468 Points
+              </span>
+            </li>
+            <li className="flex items-center gap-2 text-gray-300 hover:text-white cursor-pointer">
+              <LogOut size={16} /> Log out
+            </li>
+          </ul>
+
+          <ul className="mt-4 flex flex-col space-y-3 ">
+            {navItems.map((item) =>
+              item.dropdown ? (
+                <li key={item.name}>
+                  <span className="text-gray-300 font-medium">{item.name}</span>
+                  <ul className="mt-1  flex flex-col space-y-1">
+                    {item.dropdown.map((d) => (
+                      <Link
+                        key={d.name}
+                        href={d.href}
+                        className="text-gray-300 hover:text-white px-2 py-1 rounded"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {d.name}
+                      </Link>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href!}
+                  className="text-gray-300 hover:text-white  py-1 rounded"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
+          </ul>
         </div>
       </div>
     </nav>

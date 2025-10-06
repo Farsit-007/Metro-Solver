@@ -82,7 +82,7 @@ export function ContactSection() {
         </div>
       )}
 
-      <section className="max-w-7xl mx-auto relative px-4 py-16 lg:py-24">
+      <section className="max-w-7xl mx-auto relative  py-16 lg:py-24">
         <div className="absolute z-10 -bottom-20 right-80 w-[850px] h-[850px] bg-purple-400/10 rounded-full blur-3xl "></div>
         <div className="flex flex-col md:flex-row lg:gap-10">
           {/* Left Column */}

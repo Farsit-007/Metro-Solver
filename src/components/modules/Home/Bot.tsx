@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { Send, X } from "lucide-react";
+import { MessageCircle, Send, X } from "lucide-react";
 import Image from "next/image";
 
 import logoAnimation from "../../../assets/bot.gif";
@@ -13,13 +13,7 @@ const initialMessages = [
     time: "2:20 PM",
     isUser: false,
   },
-  {
-    id: 2,
-    sender: "User",
-    message: "Hello",
-    time: "2:23 PM",
-    isUser: true,
-  },
+  
   {
     id: 3,
     sender: "Customer Support",
@@ -27,16 +21,10 @@ const initialMessages = [
     time: "2:20 PM",
     isUser: false,
   },
-  {
-    id: 4,
-    sender: "User",
-    message: "Hello",
-    time: "2:23 PM",
-    isUser: true,
-  },
+  
 ];
 
-export default function ChatWidget() {
+export default function ChatWidget({}) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState(initialMessages);
   const [inputValue, setInputValue] = useState("");
@@ -71,10 +59,10 @@ export default function ChatWidget() {
   };
 
   return (
-    <div className="absolute bottom-8 right-8 z-50">
+    <div className="block md:absolute bottom-8 right-8 z-50 ">
       {/* Chat Window */}
       {isOpen && (
-        <div className="absolute bottom-0 right-0 w-[90vw] max-w-[380px] h-[500px] bg-black rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-gray-800 animate-in slide-in-from-bottom-5 duration-300">
+        <div className="absolute top-14 md:-top-[420px] md:bottom-0 right-0 w-[90vw] max-w-[380px] h-[500px] bg-black rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-gray-800 animate-in slide-in-from-bottom-5 ">
           {/* Header */}
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -131,7 +119,6 @@ export default function ChatWidget() {
                     )}
                     <span className="text-xs text-gray-400">{msg.sender}</span>
                   </div>
-                  <span className="text-xs text-gray-500">{msg.time}</span>
                 </div>
                 <div
                   className={`${
@@ -196,7 +183,7 @@ export default function ChatWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 cursor-pointer rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all bg-black/70`}
+        className={`w-16 h-16 cursor-pointer hidden rounded-full shadow-2xl md:flex items-center justify-center hover:scale-110 transition-all bg-black/70`}
       >
         <Image
           src={logoAnimation}
@@ -205,6 +192,10 @@ export default function ChatWidget() {
           height={96}
           className="object-contain"
         />
+      </button>
+
+      <button onClick={() => setIsOpen(!isOpen)} className="p-3  block md:hidden bg-[#25153694] rounded-full">
+        <MessageCircle />
       </button>
     </div>
   );

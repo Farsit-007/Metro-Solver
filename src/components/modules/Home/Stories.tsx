@@ -120,7 +120,7 @@ export function SuccessStoriesSection() {
   const [activeTab, setActiveTab] = useState("Success Stories");
 
   return (
-    <section className="w-full bg-background py-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-background py-16  sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-12 text-center">

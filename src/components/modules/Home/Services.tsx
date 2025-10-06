@@ -94,7 +94,7 @@ export default function ServicesSection() {
   return (
     <section className="py-20 text-white relative">
        
-      <div className="max-w-7xl mx-auto px-6 text-center relative">
+      <div className="max-w-7xl mx-auto  text-center relative">
         {/* Heading */}
         <div className="flex flex-col items-center justify-center gap-5">
           <h2 className="text-4xl font-bold mb-2">Our Services</h2>

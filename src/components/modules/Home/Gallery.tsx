@@ -17,7 +17,7 @@ const bottomItems = [{ imageUrl: bottom1 }, { imageUrl: bottom2 }];
 
 const Gallery = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 relative ">
+    <section className="max-w-7xl mx-auto  py-16 relative ">
       {/* Section Title */}
        <div className="absolute  -top-40 -right-10 w-[850px] h-[850px] bg-purple-500/10 rounded-full blur-3xl "></div>
         <div className="absolute  bottom-40 -left-10 w-[850px] h-[850px] bg-purple-500/10 rounded-full blur-3xl "></div>

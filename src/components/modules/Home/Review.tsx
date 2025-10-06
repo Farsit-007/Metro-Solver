@@ -58,7 +58,7 @@ export default function TestimonialsPage() {
   };
 
   return (
-    <div className=" py-16 px-4 relative">
+    <div className=" py-16  relative">
       <div className="max-w-7xl mx-auto">
         <div className="absolute z-10  -bottom-52 right-52 w-[750px] h-[750px] bg-purple-500/10 rounded-full blur-3xl "></div>
         <div className="w-full">
