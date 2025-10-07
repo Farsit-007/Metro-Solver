@@ -73,9 +73,6 @@ export default function Navbar() {
          
         </div>
 
-        {/* Logo */}
-
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 bg-[#25153694] rounded-full px-5 lg:ml-16 py-2">
           {navItems.map((item) =>
             item.dropdown ? (
