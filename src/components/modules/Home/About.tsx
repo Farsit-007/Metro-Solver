@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className="max-w-7xl mx-auto  py-16 lg:py-24">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
+  
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-white leading-tight text-balance">
             Unveiling the Essence Of Our Metro Solver
