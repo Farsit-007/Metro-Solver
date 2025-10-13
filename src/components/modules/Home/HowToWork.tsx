@@ -50,7 +50,6 @@ export default function HowToWork() {
       </div>
 
       <div className="relative w-full">
-        {/* Central circle with dotted border */}
       
 
         {/* Center card */}
